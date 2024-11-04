@@ -34,7 +34,7 @@ const Contact = () => {
                 </div>
                 <a href="mailto:info@example.com" className="text-[#007bff] text-sm ml-4">
                   <small className="block">Mail</small>
-                  <strong>info@example.com</strong>
+                  <strong>muhammadyunus206@gmail.com</strong>
                 </a>
               </li>
             </ul>

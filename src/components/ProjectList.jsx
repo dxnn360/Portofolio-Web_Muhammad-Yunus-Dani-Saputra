@@ -74,7 +74,7 @@ const ProjectGallery = () => {
               className="bg-white shadow-lg p-4 flex flex-col hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out"
               initial={{ opacity: 0, y: 20, scale: 0.95 }} // Initial state
               whileInView={{ opacity: 1, y: 0, scale: 1 }} // State when in view
-              transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered delay
+              transition={{ duration: 0.5 }} // Staggered delay
               viewport={{ once: false }} // Re-animates when scrolling back
               whileHover={{ scale: 1.3, rotate: 2 }} // Scale and rotate on hover
             >
