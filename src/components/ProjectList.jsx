@@ -11,37 +11,38 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 const ProjectGallery = () => {
   const projectList = [
     {
-      title: "E-Commerce Platform",
+      title: "Kapays - Payment System",
       description:
-        "An online store with real-time product updates, shopping cart, and integrated payment gateways.",
+        "Helping the people of Karangsalam Kidul manage their monthly trash payments with ease, Kapays offers a smooth, hassle-free payment experience with an integrated gateway.",
       image: slide1,
     },
     {
-      title: "Portfolio Website",
+      title: "Aglostock - Warehouse Website",
       description:
-        "A responsive portfolio showcasing projects, skills, and contact information using React and Tailwind CSS.",
+        "Keeping stock management simple and efficient, Aglostock helps businesses stay on top of inventory, orders, and suppliers, with insightful dashboards to make better decisions.",
       image: slide2,
     },
     {
-      title: "Blog Platform",
+      title: "Daur",
       description:
-        "A blog platform with rich-text editing, commenting, and social media sharing features.",
+        "Daur is a space for expression—where you can write, share your thoughts, and connect with others through comments and social media. Blogging has never felt this easy.",
       image: slide3,
     },
     {
-      title: "Inventory Management System",
+      title: "Montego - E-Commerce Website",
       description:
-        "A web app for managing stock levels, orders, and suppliers, with analytical dashboards.",
+        "Montego makes online shopping management a breeze, offering tools to handle products, orders, and suppliers while keeping an eye on growth with built-in analytics.",
       image: slide4,
     },
     {
-      title: "Social Media Dashboard",
+      title: "Water-Pumping Record Website",
       description:
-        "A dashboard for monitoring social media analytics and engagement in real-time.",
+        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
       image: slide5,
     },
     // Add more projects as needed
   ];
+  
 
   return (
     <div className="bg-white min-h-screen flex items-center py-12">
@@ -71,7 +72,7 @@ const ProjectGallery = () => {
           {projectList.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg p-4 flex flex-col hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out"
+              className="bg-white shadow-lg p-4 flex flex-col hover:bg-gray-200 text-white transition-all duration-300 ease-in-out"
               initial={{ opacity: 0, y: 20, scale: 0.95 }} // Initial state
               whileInView={{ opacity: 1, y: 0, scale: 1 }} // State when in view
               transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered delay
@@ -83,7 +84,7 @@ const ProjectGallery = () => {
                 <img
                   src={project.image}
                   alt={`${project.title} preview`}
-                  className="w-full h-full object-cover rounded-lg shadow-md"
+                  className="w-full h-full object-cover shadow-md"
                 />
               </div>
 
