@@ -7,6 +7,7 @@ import slide3 from "../assets/images/slide3.png";
 import slide4 from "../assets/images/slide4.png";
 import slide5 from "../assets/images/slide5.png";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useNavigate } from "react-router-dom";
 
 const ProjectGallery = () => {
   const projectList = [
@@ -42,7 +43,8 @@ const ProjectGallery = () => {
     },
     // Add more projects as needed
   ];
-  
+
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white min-h-screen flex items-center py-12">
@@ -78,6 +80,7 @@ const ProjectGallery = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered delay
               viewport={{ once: false }} // Re-animates when scrolling back
               whileHover={{ scale: 1.3, rotate: 2 }} // Scale and rotate on hover
+              onClick={() => navigate(`/project/${index}`)}
             >
               {/* Project Image */}
               <div className="w-full h-40 mb-4">
@@ -89,7 +92,9 @@ const ProjectGallery = () => {
               </div>
 
               {/* Project Title and Description */}
-              <h3 className="text-2xl font-semibold text-black mb-2">{project.title}</h3>
+              <h3 className="text-2xl font-semibold text-black mb-2">
+                {project.title}
+              </h3>
               <p className="text-gray-600 mb-4">{project.description}</p>
             </motion.div>
           ))}
