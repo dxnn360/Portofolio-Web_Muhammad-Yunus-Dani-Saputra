@@ -42,7 +42,7 @@ const Header = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-7xl sm:text-8xl font-bold text-gray-800"
+        className="text-7xl sm:text-8xl font-bold text-center text-gray-800"
       >
         I'm <span className="text-blue-900">Dani Saputra</span>
       </motion.h3>

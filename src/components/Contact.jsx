@@ -10,7 +10,7 @@ const Contact = () => {
 
   return (
     <div className="bg-white">
-      <div className="grid sm:grid-cols-2 items-start max-w-6xl gap-14 p-8 py-16 mx-auto bg-white rounded-0 shadow-lg">
+      <div className="grid sm:grid-cols-2 items-start max-w-6xl gap-14 p-8 py-16 mx-auto bg-white rounded-0">
         {/* Left Section with Contact Info */}
         <motion.div
           initial={{ opacity: 0, x: -50 }} // Initial state

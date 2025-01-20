@@ -41,6 +41,12 @@ const ProjectGallery = () => {
         "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
       image: slide5,
     },
+    {
+      title: "Grounder - Car Dealers Website",
+      description:
+        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
+      image: slide5,
+    },
     // Add more projects as needed
   ];
 
