@@ -114,6 +114,9 @@ const Projects = () => {
               <i className="fas fa-rocket fa-3x text-grey-400 hover:text-white"></i>
             </figure>
             <div className="card-body ml-4">
+              <h1 className="text-2xl font-semibold text-black mb-2">
+                Technology Proficiency
+              </h1>
               <h2 className="text-2xl text-justify text-gray-700">
                 Knowledgeable in various tools and technologies including Git, API integrations, Cybersecurity, and cloud services.
               </h2>
