@@ -85,7 +85,7 @@ const projectList = [
       `The platform bridges the gap between customer needs and dealership operations, ensuring a seamless car-buying journey.`,
     ],
     image: slide6,
-    stack: [<FaFigma />],
+    stack: [<SiFigma />],
   },
   {
     title: "Volvo Indonesia - Landing Page Remade",
