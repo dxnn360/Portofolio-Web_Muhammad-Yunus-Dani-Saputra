@@ -40,19 +40,19 @@ const ProjectGallery = () => {
     {
       title: "Water-Pumping Record Website",
       description:
-        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
+        "This website addresses inefficiencies in logging water production activities. Manual methods led to data inaccuracies, delays, and unreliable reporting.",
       image: slide5,
     },
     {
       title: "Grounder - Car Dealers Website",
       description:
-        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
+        "Grounder is a dedicated platform for car dealerships, addressing the challenges of managing inventory, customer inquiries, and sales tracking.",
       image: slide6,
     },
     {
       title: "Volvo Indonesia - Landing Page Remade",
       description:
-        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
+        "This project is a remade landing page for Volvo Indonesia, designed to enhance their digital presence and align with modern web standards.",
       image: slide7,
     },
     // Add more projects as needed
