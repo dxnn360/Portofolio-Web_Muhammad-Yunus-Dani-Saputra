@@ -22,7 +22,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            <div>
+            <div className="overflow-hidden">
               <Header />
               <About />
               <Carousel />

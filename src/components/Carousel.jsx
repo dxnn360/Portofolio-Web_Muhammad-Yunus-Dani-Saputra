@@ -61,7 +61,7 @@ const Carousel = () => {
   return (
     <div
       ref={ref} // Reference for inView tracking
-      className="relative w-full h-[600px] overflow-hidden bg-gray-100 flex items-center justify-center"
+      className="relative w-full h-[100px] sm:h-[600px] sm:overflow-hidden bg-gray-100 flex items-center justify-center"
     >
       {projects.map((project, index) => (
         <motion.div

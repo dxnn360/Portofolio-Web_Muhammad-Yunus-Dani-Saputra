@@ -25,7 +25,7 @@ const Contact = () => {
 
   return (
     <div className="bg-white">
-      <div className="flex flex-col sm:flex-row items-start sm:px-[210px] py-16 mx-auto bg-white rounded-0 space-y-8 sm:space-y-0 sm:space-x-8">
+      <div className="flex flex-col mx-8 sm:flex-row sm:mx-0 items-start sm:px-[210px] py-16 mx-auto bg-white rounded-0 space-y-8 sm:space-y-0 sm:space-x-8">
         {/* Left Section with Contact Info */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
