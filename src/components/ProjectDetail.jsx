@@ -50,12 +50,12 @@ const projectList = [
   {
     title: "Daur",
     description: [
-      `Daur is a modern blogging platform prototype designed to empower writers with robust tools for content creation and engagement. Existing platforms often lack features that support seamless editing and community interaction.`,
-      `Designed in Figma, Daur offers a sleek, user-friendly interface with rich-text editing and collaboration tools. It prioritizes usability, enabling writers to draft, edit, and share content effortlessly.`,
-      `Daur demonstrates the potential of intuitive design in elevating the digital storytelling experience.`,
+      "Daur simplifies the process of responsible waste disposal. Users can effortlessly throw away their recyclables.",
+      "The app provides a convenient and eco-friendly solution for getting rid of waste. It features a user-friendly interface that guides users on how to properly sort and dispose of their recyclables.",
+      "With Daur, users can track their recycling efforts, learn about sustainable practices, and contribute to a cleaner environment in their community."
     ],
     image: slide3,
-    stack: [<SiFigma />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    stack: [<SiFigma />],
   },
   {
     title: "Montego - E-Commerce Website",
@@ -81,11 +81,11 @@ const projectList = [
     title: "Grounder - Car Dealers Website",
     description: [
       `Grounder is a dedicated platform for car dealerships, addressing the challenges of managing inventory, customer inquiries, and sales tracking.`,
-      `Built with Laravel, Grounder offers intuitive inventory management, responsive design, and real-time analytics. Dealers can showcase cars effectively while providing an optimized browsing experience for potential buyers.`,
+      `Grounder offers intuitive inventory management, responsive design, and real-time analytics. Dealers can showcase cars effectively while providing an optimized browsing experience for potential buyers.`,
       `The platform bridges the gap between customer needs and dealership operations, ensuring a seamless car-buying journey.`,
     ],
     image: slide6,
-    stack: [<FaLaravel />, <FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    stack: [<FaFigma />],
   },
   {
     title: "Volvo Indonesia - Landing Page Remade",

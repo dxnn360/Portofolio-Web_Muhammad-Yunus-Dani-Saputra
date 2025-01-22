@@ -28,7 +28,7 @@ const ProjectGallery = () => {
     {
       title: "Daur",
       description:
-        "Daur is a space for expression—where you can write, share your thoughts, and connect with others through comments and social media. Blogging has never felt this easy.",
+        "Daur simplifies the process of responsible waste disposal. Users can effortlessly throw away their recyclables. The app provides a convenient and eco-friendly solution for getting rid of waste.",
       image: slide3,
     },
     {
