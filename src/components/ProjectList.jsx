@@ -1,11 +1,13 @@
 // src/components/ProjectGallery.jsx
 import React from "react";
 import { motion } from "framer-motion"; // Import motion from framer-motion
-import slide1 from "../assets/images/slide1.png";
-import slide2 from "../assets/images/slide2.png";
-import slide3 from "../assets/images/slide3.png";
-import slide4 from "../assets/images/slide4.png";
-import slide5 from "../assets/images/slide5.png";
+import slide1 from "../assets/images/project/kapays.png";
+import slide2 from "../assets/images/project/aglo.png";
+import slide3 from "../assets/images/project/daur.png";
+import slide4 from "../assets/images/project/montego.png";
+import slide5 from "../assets/images/project/pdam.png";
+import slide6 from "../assets/images/project/grounder.png";
+import slide7 from "../assets/images/project/volvo.png";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useNavigate } from "react-router-dom";
 
@@ -45,7 +47,13 @@ const ProjectGallery = () => {
       title: "Grounder - Car Dealers Website",
       description:
         "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
-      image: slide5,
+      image: slide6,
+    },
+    {
+      title: "Volvo Indonesia - Landing Page Remade",
+      description:
+        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
+      image: slide7,
     },
     // Add more projects as needed
   ];

@@ -1,5 +1,4 @@
-// src/components/Header.jsx
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import profilePictureLarge from "../assets/images/hero-page.png";
@@ -22,6 +21,8 @@ const Header = () => {
     };
   }, []);
 
+  const [hovered, setHovered] = useState(false);
+
   return (
     <motion.div
       ref={ref}
@@ -39,10 +40,12 @@ const Header = () => {
         - Hello
       </motion.h1>
       <motion.h3
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-7xl sm:text-8xl font-bold text-center text-gray-800"
+        className="text-7xl sm:text-8xl font-bold text-center text-gray-800 cursor-pointer group"
       >
         I'm <span className="text-blue-900">Dani Saputra</span>
       </motion.h3>
@@ -74,6 +77,21 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      {/* Card Interaktif saat hover pada 'WEB PROGRAMMER' */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={hovered ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className={`absolute w-64 p-4 bg-gray-100 rounded shadow-lg ${
+          hovered ? 'block' : 'hidden'
+        }`}
+      >
+        <h4 className="text-lg font-semibold text-gray-800 mb-2">About My Work</h4>
+        <p className="text-sm text-gray-600 text-justify">
+          I specialize in building responsive and interactive web applications. My focus is on creating scalable, maintainable, and high-performance web solutions.
+        </p>
+      </motion.div>
     </motion.div>
   );
 };
