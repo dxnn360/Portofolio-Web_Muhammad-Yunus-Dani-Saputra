@@ -46,6 +46,7 @@ const projectList = [
       <FaCss3Alt />,
       <FaJs />,
     ],
+    link: "https://github.com",
   },
   {
     title: "Daur",
@@ -56,6 +57,7 @@ const projectList = [
     ],
     image: slide3,
     stack: [<SiFigma />],
+    link: "https://github.com",
   },
   {
     title: "Montego - E-Commerce Website",
@@ -66,6 +68,7 @@ const projectList = [
     ],
     image: slide4,
     stack: [<FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
   {
     title: "Water-Pumping Record Website",
@@ -76,6 +79,7 @@ const projectList = [
     ],
     image: slide5,
     stack: [<FaLaravel />, <FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
   {
     title: "Grounder - Car Dealers Website",
@@ -86,6 +90,7 @@ const projectList = [
     ],
     image: slide6,
     stack: [<SiFigma />],
+    link: "https://github.com",
   },
   {
     title: "Volvo Indonesia - Landing Page Remade",
@@ -96,6 +101,7 @@ const projectList = [
     ],
     image: slide7,
     stack: [<FaReact />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
 ];
 
@@ -181,6 +187,17 @@ const ProjectDetail = () => {
                   </motion.span>
                 ))}
               </div>
+            </motion.div>
+
+            <motion.div
+              className="mt-6 flex items-center space-x-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <a href={project.link} className="flex flex-wrap space-x-2 p-2 px-8 text-white text-xl bg-blue-900 hover:bg-blue-600 hover:shadow-md">
+                Check The Repo!
+              </a>
             </motion.div>
           </div>
         </div>

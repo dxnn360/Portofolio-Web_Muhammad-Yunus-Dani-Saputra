@@ -43,7 +43,7 @@ const About = () => {
         </div>
         <div className="flex-col items-start w-full sm:w-2/3 ms-4 sm:ms-8">
           <motion.h3
-            className="text-2xl text-justify text-gray-600 me-8"
+            className="text-xl text-justify text-gray-600 me-8"
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             variants={aboutVariants}
@@ -57,7 +57,7 @@ const About = () => {
             needs and technical implementation.
           </motion.h3>
           <motion.h3
-            className="text-2xl text-justify text-gray-600 mt-16 me-8 sm:mt-16 sm:me-8"
+            className="text-xl text-justify text-gray-600 mt-16 me-8 sm:mt-16 sm:me-8"
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             variants={aboutVariants}

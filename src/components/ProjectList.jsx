@@ -61,7 +61,7 @@ const ProjectGallery = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white min-h-screen flex items-center py-12">
+    <div className="bg-white min-h-screen flex items-center">
       {/* Main container for Projects section */}
       <div className="flex flex-col w-full max-w-6xl mx-auto p-4">
         {/* Title Section */}

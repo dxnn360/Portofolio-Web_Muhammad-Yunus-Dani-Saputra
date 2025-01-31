@@ -1,66 +1,81 @@
 import "./App.css";
 import "./styles/tailwind.css";
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import React Router
+import React, { Suspense, lazy, useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import About from "./components/AboutMe";
-import Blank from "./components/blankscreen";
-import Carousel from "./components/Carousel";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Projects from "./components/Projects";
-import ProjectList from "./components/ProjectList"; // Updated import
-import ProjectDetail from "./components/ProjectDetail"; // Import ProjectDetail
+import Loading from "./components/Loading"; // Komponen Loading
+import Heading from "./components/Heading";
+
+const Header = lazy(() => import("./components/Header"));
+const About = lazy(() => import("./components/AboutMe"));
+const Carousel = lazy(() => import("./components/Carousel"));
+const Projects = lazy(() => import("./components/Projects"));
+const ProjectList = lazy(() => import("./components/ProjectList"));
+const ProjectDetail = lazy(() => import("./components/ProjectDetail"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+const Blank = lazy(() => import("./components/blankscreen"));
 
 const App = () => {
+  const [showLoading, setShowLoading] = useState(true);
+
+  useEffect(() => {
+    // Timer selama 5 detik sebelum loading hilang
+    const timer = setTimeout(() => setShowLoading(false), 8000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        {/* Define Routes */}
-        <Route
-          path="/"
-          element={
-            <div className="overflow-hidden">
-              <Header />
-              <About />
-              <Carousel />
-              <Projects />
-              <ProjectList />
-              <Contact />
-              <Blank />
-              <Footer />
-            </div>
-          }
-        />
-        <Route path="/project/:id" element={<ProjectDetail />} />
-        <Route
-          path="/about"
-          element={
-            <div>
-              <About />
-              <Contact />
-            </div>
-          }
-        />
-        <Route
-          path="/project"
-          element={
-            <div>
-              <ProjectList />
-            </div>
-          }
-        />
-        <Route
-          path="/skills"
-          element={
-            <div>
-              <Projects />
-            </div>
-          }
-        />
-      </Routes>
+      {showLoading ? (
+        <Loading />
+      ) : (
+        <Suspense fallback={<Loading />}>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="overflow-hidden">
+                  <Header />
+                  <About />
+                  <Carousel />
+                  <Projects />
+                  <ProjectList />
+                  <Contact />
+                  <Blank />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route path="/project/:id" element={<ProjectDetail />} />
+            <Route
+              path="/about"
+              element={
+                <div>
+                  <Heading />
+                  <About />
+                  <Contact />
+                </div>
+              }
+            />
+            <Route path="/project" element={
+                <div>
+                  <Heading />
+                  <ProjectList />
+                </div>
+              } 
+            />
+            <Route path="/skills" element={
+                <div>
+                  <Heading />
+                  <Projects />
+                </div>
+              }  
+            />
+          </Routes>
+        </Suspense>
+      )}
     </Router>
   );
 };
