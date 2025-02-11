@@ -7,7 +7,7 @@ const AnimatedText = ({ text }) => {
   const letters = Array.from(text); // Memisahkan teks menjadi array huruf
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap justify-center">
       {letters.map((letter, index) => (
         <motion.span
           key={index}
@@ -40,7 +40,7 @@ const Loading = () => {
           setIsLoadingComplete(true); // Set loading selesai
           return 100;
         }
-        return oldProgress + 10;
+        return oldProgress + 20;
       });
     }, 500); // Interval lebih cepat
 
@@ -66,10 +66,10 @@ const Loading = () => {
           transition={{ duration: 0.5, ease: "easeOut" }} // Transisi lebih cepat
         >
           {/* Main Content */}
-          <div className="text-center z-10">
+          <div className="text-center z-10 px-4">
             {/* Animasi Teks "Welcome" */}
             <motion.h1
-              className="mb-4 text-4xl font-bold"
+              className="mb-4 text-xl md:text-4xl font-bold"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }} // Animasi lebih halus
@@ -77,7 +77,7 @@ const Loading = () => {
               <AnimatedText text="Welcome to Dxnn Portfolio" />
             </motion.h1>
             <motion.p
-              className="text-sm text-gray-400"
+              className="text-xs md:text-base md:text-sm text-gray-400"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }} // Animasi lebih halus
@@ -105,32 +105,6 @@ const Loading = () => {
           >
             Loading...
           </motion.div>
-
-          {/* Background Abstrak */}
-          <motion.div
-            className="absolute inset-0 z-0"
-            initial={{ scale: 0.8, rotate: 0 }}
-            animate={{ scale: 1.2, rotate: 360 }} // Rotasi dan scaling
-            transition={{
-              duration: 10,
-              ease: "linear",
-              repeat: Infinity, // Animasi berulang
-            }}
-            style={{
-              background:
-                "radial-gradient(circle, rgba(2,2,47,1) 0%, rgba(0,0,0,1) 100%)",
-            }}
-          />
-          <motion.div
-            className="absolute inset-0 z-0"
-            initial={{ x: -100, y: -100 }}
-            animate={{ x: [0, 100, -100, 0], y: [0, 100, -100, 0] }} // Pergerakan acak
-            transition={{
-              duration: 5,
-              ease: "easeInOut",
-              repeat: Infinity, // Animasi berulang
-            }}
-          />
         </motion.div>
       )}
     </AnimatePresence>

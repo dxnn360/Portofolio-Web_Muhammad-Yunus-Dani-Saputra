@@ -17,25 +17,9 @@ const Projects = () => {
     <div className="bg-white pt-[100px] sm:pt-0 min-h-screen flex items-center mt-2">
       <div className="flex flex-col sm:flex-row w-full mt-8 max-w-6xl mx-auto p-4">
         <div className="w-full sm:w-1/3 flex flex-col items-start mb-8 sm:mb-0 pr-0 sm:pr-8">
-          <h2 className="text-4xl font-bold mt-[60px] text-gray-800 pe-4 sm:pe-8">
+          <h2 className="text-4xl font-bold mt-[60px] text-gray-800 pe-0 sm:pe-8">
             What Can I Do?
           </h2>
-          <div className="flex my-6 justify-end">
-            <svg
-              className="w-6 h-6 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </div>
         </div>
 
         <div className="w-full sm:w-2/3 flex flex-wrap justify-start">

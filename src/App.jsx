@@ -21,7 +21,7 @@ const App = () => {
 
   useEffect(() => {
     // Timer selama 5 detik sebelum loading hilang
-    const timer = setTimeout(() => setShowLoading(false), 8000);
+    const timer = setTimeout(() => setShowLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
