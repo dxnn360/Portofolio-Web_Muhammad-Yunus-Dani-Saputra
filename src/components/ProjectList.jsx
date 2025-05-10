@@ -1,11 +1,13 @@
 // src/components/ProjectGallery.jsx
 import React from "react";
 import { motion } from "framer-motion"; // Import motion from framer-motion
-import slide1 from "../assets/images/slide1.png";
-import slide2 from "../assets/images/slide2.png";
-import slide3 from "../assets/images/slide3.png";
-import slide4 from "../assets/images/slide4.png";
-import slide5 from "../assets/images/slide5.png";
+import slide1 from "../assets/images/project/kapays.png";
+import slide2 from "../assets/images/project/aglo.png";
+import slide3 from "../assets/images/project/daur.png";
+import slide4 from "../assets/images/project/montego.png";
+import slide5 from "../assets/images/project/pdam.png";
+import slide6 from "../assets/images/project/grounder.png";
+import slide7 from "../assets/images/project/volvo.png";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +28,7 @@ const ProjectGallery = () => {
     {
       title: "Daur",
       description:
-        "Daur is a space for expression—where you can write, share your thoughts, and connect with others through comments and social media. Blogging has never felt this easy.",
+        "Daur simplifies the process of responsible waste disposal. Users can effortlessly throw away their recyclables. The app provides a convenient and eco-friendly solution for getting rid of waste.",
       image: slide3,
     },
     {
@@ -38,8 +40,20 @@ const ProjectGallery = () => {
     {
       title: "Water-Pumping Record Website",
       description:
-        "Designed to keep things flowing smoothly, this platform lets you easily track and manage water-pumping activities with clarity and control.",
+        "This website addresses inefficiencies in logging water production activities. Manual methods led to data inaccuracies, delays, and unreliable reporting.",
       image: slide5,
+    },
+    {
+      title: "Grounder - Car Dealers Website",
+      description:
+        "Grounder is a dedicated platform for car dealerships, addressing the challenges of managing inventory, customer inquiries, and sales tracking.",
+      image: slide6,
+    },
+    {
+      title: "Volvo Indonesia - Landing Page Remade",
+      description:
+        "This project is a remade landing page for Volvo Indonesia, designed to enhance their digital presence and align with modern web standards.",
+      image: slide7,
     },
     // Add more projects as needed
   ];
@@ -47,7 +61,7 @@ const ProjectGallery = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white min-h-screen flex items-center py-12">
+    <div className="bg-white min-h-screen flex items-center">
       {/* Main container for Projects section */}
       <div className="flex flex-col w-full max-w-6xl mx-auto p-4">
         {/* Title Section */}
@@ -77,7 +91,7 @@ const ProjectGallery = () => {
               className="bg-white shadow-lg p-4 flex flex-col hover:bg-gray-200 text-white transition-all duration-300 ease-in-out"
               initial={{ opacity: 0, y: 20, scale: 0.95 }} // Initial state
               whileInView={{ opacity: 1, y: 0, scale: 1 }} // State when in view
-              transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered delay
+              transition={{ duration: 0.5 }} // Staggered delay
               viewport={{ once: false }} // Re-animates when scrolling back
               whileHover={{ scale: 1.3, rotate: 2 }} // Scale and rotate on hover
               onClick={() => navigate(`/project/${index}`)}

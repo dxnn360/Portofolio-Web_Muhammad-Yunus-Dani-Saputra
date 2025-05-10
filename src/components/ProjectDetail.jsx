@@ -1,56 +1,107 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import slide1 from "../assets/images/slide1.png";
-import slide2 from "../assets/images/slide2.png";
-import slide3 from "../assets/images/slide3.png";
-import slide4 from "../assets/images/slide4.png";
-import slide5 from "../assets/images/slide5.png";
+import {
+  FaLaravel,
+  FaPhp,
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+} from "react-icons/fa";
+import { SiMongodb, SiFigma } from "react-icons/si";
+import slide1 from "../assets/images/project/kapays.png";
+import slide2 from "../assets/images/project/aglo.png";
+import slide3 from "../assets/images/project/daur.png";
+import slide4 from "../assets/images/project/montego.png";
+import slide5 from "../assets/images/project/pdam.png";
+import slide6 from "../assets/images/project/grounder.png";
+import slide7 from "../assets/images/project/volvo.png";
+import { motion } from "framer-motion";
 
 const projectList = [
   {
     title: "Kapays - Payment System",
     description: [
-      `Kapays was developed to address the inconvenience and inefficiencies in managing monthly trash payments for the people of Karangsalam Kidul. The existing manual payment processes often caused delays, disputes, and challenges in keeping accurate records. These issues created unnecessary frustration for both residents and the administrators responsible for collecting payments.`,
-      `To solve this problem, Kapays was built using Laravel, providing a modern web-based solution. The platform integrates a secure payment gateway, allowing residents to make payments easily and ensuring administrators have access to real-time records. Automatic reminders and user-friendly dashboards further simplify the process, reducing late payments and administrative overhead.`,
-      `By streamlining payment management, Kapays not only improves the user experience but also helps administrators focus on community development rather than operational inefficiencies. This system is a practical example of how technology can bridge gaps in essential services.`,
+      `Kapays is a web-based payment system designed to simplify the monthly trash payment process in Karangsalam Kidul. Before Kapays, residents and administrators faced inefficiencies, delayed payments, and disputes due to manual processes.`,
+      `Built using Laravel, Kapays integrates a secure payment gateway, automated reminders, and a user-friendly dashboard for seamless payment management. It ensures real-time record tracking, helping administrators and residents avoid the hassles of manual systems.`,
+      `Kapays bridges the gap in essential community services by promoting transparency, reducing administrative burdens, and enhancing the overall payment experience.`,
     ],
     image: slide1,
+    stack: [<FaLaravel />, <FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
   },
   {
     title: "Aglostock - Warehouse Website",
     description: [
-      `Aglostock was created to solve common challenges in warehouse management, such as tracking inventory, avoiding stockouts, and managing supplier relationships. Small and medium-sized businesses often struggled with outdated tools, leading to inefficiencies and lost opportunities due to poor inventory control.`,
-      `Built using the MERN stack (MongoDB, Express.js, React, and Node.js), Aglostock provides a comprehensive solution. It offers features like real-time stock updates, automated alerts for low inventory, and detailed analytics for smarter decision-making. The intuitive user interface ensures that even users without technical expertise can easily navigate the system.`,
-      `Aglostock empowers businesses to optimize their operations and respond proactively to inventory needs. Its scalable architecture makes it suitable for businesses of various sizes, ensuring they stay competitive in a rapidly changing market.`,
+      `Aglostock is a warehouse management system tailored for businesses seeking efficient inventory control. Manual systems often led to errors, stockouts, and lost opportunities.`,
+      `Developed using the MERN stack (MongoDB, Express.js, React, Node.js), Aglostock features real-time stock tracking, low inventory alerts, and analytics. Its intuitive design ensures accessibility for non-technical users.`,
+      `By streamlining operations, Aglostock empowers businesses to make informed decisions, adapt to market demands, and enhance overall productivity.`,
     ],
     image: slide2,
+    stack: [
+      <FaReact />,
+      <FaNodeJs />,
+      <SiMongodb />,
+      <FaHtml5 />,
+      <FaCss3Alt />,
+      <FaJs />,
+    ],
+    link: "https://github.com",
   },
   {
     title: "Daur",
     description: [
-      `Daur is a conceptual prototype for a blogging platform designed to enhance the blogging experience for writers and readers alike. Writers often struggle with platforms that lack robust editing tools or features to foster meaningful audience engagement, inspiring the creation of Daur.`,
-      `Developed using Figma, Daur features a modern and user-friendly interface with rich-text editing capabilities. The prototype prioritizes seamless navigation, making it easier for writers to draft, edit, and publish content. Additionally, community features like commenting and sharing are integrated to encourage interaction and collaboration.`,
-      `Though still in the design phase, Daur showcases a thoughtful approach to addressing the needs of modern content creators. It highlights how intuitive design can make online expression more accessible and enjoyable.`,
+      "Daur simplifies the process of responsible waste disposal. Users can effortlessly throw away their recyclables.",
+      "The app provides a convenient and eco-friendly solution for getting rid of waste. It features a user-friendly interface that guides users on how to properly sort and dispose of their recyclables.",
+      "With Daur, users can track their recycling efforts, learn about sustainable practices, and contribute to a cleaner environment in their community."
     ],
     image: slide3,
+    stack: [<SiFigma />],
+    link: "https://github.com",
   },
   {
     title: "Montego - E-Commerce Website",
     description: [
-      `Montego was developed to address the operational challenges faced by small online businesses, including inventory tracking, order management, and customer engagement. Many businesses relied on fragmented or manual systems, which often led to errors and inefficiencies.`,
-      `Built using PHP, Montego provides a straightforward yet powerful solution for e-commerce management. The system includes features such as intuitive product management, order tracking, and reporting tools. With a focus on simplicity and reliability, Montego ensures that business owners can easily manage their operations without needing extensive technical knowledge.`,
-      `By streamlining daily tasks, Montego allows business owners to focus on growth and customer satisfaction. Its design reflects the importance of balancing functionality and user experience, ensuring that it remains an invaluable tool for managing online stores.`,
+      `Montego is an e-commerce management system built for small businesses. Many faced difficulties with inventory tracking, order processing, and customer engagement due to fragmented tools.`,
+      `Using PHP, Montego simplifies operations with features like product management, order tracking, and reporting. Its focus on reliability and ease of use ensures accessibility for business owners.`,
+      `Montego helps businesses scale effectively by optimizing daily workflows and enhancing customer satisfaction.`,
     ],
     image: slide4,
+    stack: [<FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
   {
     title: "Water-Pumping Record Website",
     description: [
-      `This project was created to address the inefficiencies in tracking water production activities. Previously, manual record-keeping processes often resulted in data inaccuracies, operational delays, and difficulty in generating reliable reports for decision-making.`,
-      `Using Laravel as the backend framework, the platform provides a centralized system for logging water-pumping activities. Operators can track production data, generate detailed reports, and analyze trends over time. The platform's clean and intuitive design ensures accessibility for users with varying levels of technical expertise.`,
-      `By replacing manual processes with an automated solution, this system improves transparency and ensures accurate data management. It empowers stakeholders to make better decisions based on real-time insights and historical data, ultimately enhancing the efficiency of water production operations.`,
+      `This website addresses inefficiencies in logging water production activities. Manual methods led to data inaccuracies, delays, and unreliable reporting.`,
+      `Using Laravel, the system centralizes data logging, enabling operators to track production metrics and generate detailed reports. Its user-friendly design ensures accessibility for all users.`,
+      `By automating record-keeping, this system promotes accurate data management and supports better decision-making in water production operations.`,
     ],
     image: slide5,
+    stack: [<FaLaravel />, <FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
+  },
+  {
+    title: "Grounder - Car Dealers Website",
+    description: [
+      `Grounder is a dedicated platform for car dealerships, addressing the challenges of managing inventory, customer inquiries, and sales tracking.`,
+      `Grounder offers intuitive inventory management, responsive design, and real-time analytics. Dealers can showcase cars effectively while providing an optimized browsing experience for potential buyers.`,
+      `The platform bridges the gap between customer needs and dealership operations, ensuring a seamless car-buying journey.`,
+    ],
+    image: slide6,
+    stack: [<SiFigma />],
+    link: "https://github.com",
+  },
+  {
+    title: "Volvo Indonesia - Landing Page Remade",
+    description: [
+      `This project is a remade landing page for Volvo Indonesia, designed to enhance their digital presence and align with modern web standards.`,
+      `The new design emphasizes responsive layouts, fast loading times, and an intuitive user interface. It integrates striking visuals and streamlined navigation to improve user engagement.`,
+      `This remade landing page exemplifies how modern web design can amplify brand identity while delivering a superior online experience.`,
+    ],
+    image: slide7,
+    stack: [<FaReact />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
 ];
 
@@ -64,28 +115,94 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center py-12">
-      <div className="max-w-4xl w-full p-4">
-        <button
-          onClick={() => navigate(-1)}
-          className="text-blue-500 mb-6 hover:underline"
+    <motion.div
+      className="bg-white min-h-screen flex flex-col items-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex flex-col sm:flex-row">
+        <motion.div
+          className="flex-1 w-full overflow-hidden"
+          initial={{ scale: 0.95 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.6 }}
         >
-          &larr; Back to Projects
-        </button>
-        <h1 className="text-4xl text-black font-bold mb-4">{project.title}</h1>
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          className="w-full h-64 object-contain"
-        />
-        
-        <div className="text-gray-500 text-justify text-lg mt-6 space-y-4">
-          {project.description.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="w-full h-full md:h-screen object-cover"
+          />
+        </motion.div>
+
+        <div className="flex-1 mt-8 sm:mt-0">
+          <div className="max-w-4xl w-full p-16">
+            <motion.button
+              onClick={() => navigate(-1)}
+              className="text-black mb-6 hover:underline hover:text-blue-500"
+              whileHover={{ scale: 1.1 }}
+            >
+              &larr; Back to Projects
+            </motion.button>
+            <motion.h1
+              className="text-4xl text-black font-bold mb-4"
+              initial={{ y: -20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {project.title}
+            </motion.h1>
+
+            <div className="text-gray-500 text-justify text-lg space-y-4 mt-8">
+              {project.description.map((paragraph, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.2 }}
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+            </div>
+
+            <motion.div
+              className="mt-6 flex items-center space-x-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-gray-600 text-lg font-semibold">Technologies:</p>
+              <div className="flex flex-wrap space-x-2 text-xl">
+                {project.stack.map((icon, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="text-gray-700"
+                  >
+                    {icon}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="mt-6 flex items-center space-x-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <a href={project.link} className="flex flex-wrap space-x-2 p-2 px-8 text-white text-xl bg-blue-900 hover:bg-blue-600 hover:shadow-md">
+                Check The Repo!
+              </a>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
