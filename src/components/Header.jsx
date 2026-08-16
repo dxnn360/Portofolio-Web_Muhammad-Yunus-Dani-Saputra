@@ -135,7 +135,7 @@ const Header = () => {
             opacity: 0,
           }}
         >
-          I'm <span style={{ color: "#2563eb", fontWeight: 800 }}>Dani Saputra</span>
+          I'm <span style={{ color: "#2563eb", fontWeight: 700 }}>Dani Saputra</span>
         </h1>
 
         {/* WEB PROGRAMMER */}
@@ -151,7 +151,7 @@ const Header = () => {
             opacity: 0,
           }}
         >
-          WEB PROGRAMMER
+          SOFTWARE ENGINEER
         </div>
       </div>
 
