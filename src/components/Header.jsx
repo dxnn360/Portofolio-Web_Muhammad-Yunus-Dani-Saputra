@@ -126,7 +126,7 @@ const Header = () => {
           style={{
             fontFamily: "var(--font-heading)",
             fontSize: "clamp(2.4rem, 6vw, 4.8rem)",
-            fontWeight: 800,
+            fontWeight: 700,
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
             color: "var(--color-text-primary)",
