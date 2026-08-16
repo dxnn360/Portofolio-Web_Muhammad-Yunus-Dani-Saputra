@@ -1,10 +1,2 @@
-/* index.css */
-@import "@fontsource/lato"; /* Mengimpor semua varian font Lato */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  font-family: 'Lato', sans-serif;
-  background-color:'white';
-}
+/* App.css — minimal, most styles moved to index.css design system */
+@import "@fontsource/lato";

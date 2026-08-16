@@ -1,9 +1,3 @@
-import React from "react";
-
-const Blank =() => {
-    return(
-        <div className="p-10 bg-white"></div>
-    )
-}
-
+// This component is no longer used in the redesigned portfolio
+const Blank = () => null;
 export default Blank;
