@@ -1,56 +1,107 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import slide1 from "../assets/images/slide1.png";
-import slide2 from "../assets/images/slide2.png";
-import slide3 from "../assets/images/slide3.png";
-import slide4 from "../assets/images/slide4.png";
-import slide5 from "../assets/images/slide5.png";
+import {
+  FaLaravel,
+  FaPhp,
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+} from "react-icons/fa";
+import { SiMongodb, SiFigma } from "react-icons/si";
+import slide1 from "../assets/images/project/kapays.png";
+import slide2 from "../assets/images/project/aglo.png";
+import slide3 from "../assets/images/project/daur.png";
+import slide4 from "../assets/images/project/montego.png";
+import slide5 from "../assets/images/project/pdam.png";
+import slide6 from "../assets/images/project/grounder.png";
+import slide7 from "../assets/images/project/volvo.png";
+import gsap from "gsap";
 
 const projectList = [
   {
-    title: "Kapays - Payment System",
+    title: "Kapays — Payment System",
     description: [
-      `Kapays was developed to address the inconvenience and inefficiencies in managing monthly trash payments for the people of Karangsalam Kidul. The existing manual payment processes often caused delays, disputes, and challenges in keeping accurate records. These issues created unnecessary frustration for both residents and the administrators responsible for collecting payments.`,
-      `To solve this problem, Kapays was built using Laravel, providing a modern web-based solution. The platform integrates a secure payment gateway, allowing residents to make payments easily and ensuring administrators have access to real-time records. Automatic reminders and user-friendly dashboards further simplify the process, reducing late payments and administrative overhead.`,
-      `By streamlining payment management, Kapays not only improves the user experience but also helps administrators focus on community development rather than operational inefficiencies. This system is a practical example of how technology can bridge gaps in essential services.`,
+      "Kapays is a web-based payment system designed to simplify the monthly trash payment process in Karangsalam Kidul. Before Kapays, residents and administrators faced inefficiencies, delayed payments, and disputes due to manual processes.",
+      "Built using Laravel, Kapays integrates a secure payment gateway, automated reminders, and a user-friendly dashboard for seamless payment management. It ensures real-time record tracking, helping administrators and residents avoid the hassles of manual systems.",
+      "Kapays bridges the gap in essential community services by promoting transparency, reducing administrative burdens, and enhancing the overall payment experience.",
     ],
     image: slide1,
+    stack: ["Laravel", "PHP", "HTML5", "CSS3", "JavaScript"],
+    stackIcons: [<FaLaravel />, <FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
   },
   {
-    title: "Aglostock - Warehouse Website",
+    title: "Aglostock — Warehouse",
     description: [
-      `Aglostock was created to solve common challenges in warehouse management, such as tracking inventory, avoiding stockouts, and managing supplier relationships. Small and medium-sized businesses often struggled with outdated tools, leading to inefficiencies and lost opportunities due to poor inventory control.`,
-      `Built using the MERN stack (MongoDB, Express.js, React, and Node.js), Aglostock provides a comprehensive solution. It offers features like real-time stock updates, automated alerts for low inventory, and detailed analytics for smarter decision-making. The intuitive user interface ensures that even users without technical expertise can easily navigate the system.`,
-      `Aglostock empowers businesses to optimize their operations and respond proactively to inventory needs. Its scalable architecture makes it suitable for businesses of various sizes, ensuring they stay competitive in a rapidly changing market.`,
+      "Aglostock is a warehouse management system tailored for businesses seeking efficient inventory control. Manual systems often led to errors, stockouts, and lost opportunities.",
+      "Developed using the MERN stack (MongoDB, Express.js, React, Node.js), Aglostock features real-time stock tracking, low inventory alerts, and analytics. Its intuitive design ensures accessibility for non-technical users.",
+      "By streamlining operations, Aglostock empowers businesses to make informed decisions, adapt to market demands, and enhance overall productivity.",
     ],
     image: slide2,
+    stack: ["React", "Node.js", "MongoDB", "HTML5", "CSS3", "JavaScript"],
+    stackIcons: [<FaReact />, <FaNodeJs />, <SiMongodb />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
   {
-    title: "Daur",
+    title: "Daur — Recycling",
     description: [
-      `Daur is a conceptual prototype for a blogging platform designed to enhance the blogging experience for writers and readers alike. Writers often struggle with platforms that lack robust editing tools or features to foster meaningful audience engagement, inspiring the creation of Daur.`,
-      `Developed using Figma, Daur features a modern and user-friendly interface with rich-text editing capabilities. The prototype prioritizes seamless navigation, making it easier for writers to draft, edit, and publish content. Additionally, community features like commenting and sharing are integrated to encourage interaction and collaboration.`,
-      `Though still in the design phase, Daur showcases a thoughtful approach to addressing the needs of modern content creators. It highlights how intuitive design can make online expression more accessible and enjoyable.`,
+      "Daur simplifies the process of responsible waste disposal. Users can effortlessly throw away their recyclables.",
+      "The app provides a convenient and eco-friendly solution for getting rid of waste. It features a user-friendly interface that guides users on how to properly sort and dispose of their recyclables.",
+      "With Daur, users can track their recycling efforts, learn about sustainable practices, and contribute to a cleaner environment in their community.",
     ],
     image: slide3,
+    stack: ["Figma"],
+    stackIcons: [<SiFigma />],
+    link: "https://github.com",
   },
   {
-    title: "Montego - E-Commerce Website",
+    title: "Montego — E-Commerce",
     description: [
-      `Montego was developed to address the operational challenges faced by small online businesses, including inventory tracking, order management, and customer engagement. Many businesses relied on fragmented or manual systems, which often led to errors and inefficiencies.`,
-      `Built using PHP, Montego provides a straightforward yet powerful solution for e-commerce management. The system includes features such as intuitive product management, order tracking, and reporting tools. With a focus on simplicity and reliability, Montego ensures that business owners can easily manage their operations without needing extensive technical knowledge.`,
-      `By streamlining daily tasks, Montego allows business owners to focus on growth and customer satisfaction. Its design reflects the importance of balancing functionality and user experience, ensuring that it remains an invaluable tool for managing online stores.`,
+      "Montego is an e-commerce management system built for small businesses. Many faced difficulties with inventory tracking, order processing, and customer engagement due to fragmented tools.",
+      "Using PHP, Montego simplifies operations with features like product management, order tracking, and reporting. Its focus on reliability and ease of use ensures accessibility for business owners.",
+      "Montego helps businesses scale effectively by optimizing daily workflows and enhancing customer satisfaction.",
     ],
     image: slide4,
+    stack: ["PHP", "HTML5", "CSS3", "JavaScript"],
+    stackIcons: [<FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
   {
-    title: "Water-Pumping Record Website",
+    title: "Water-Pumping Records",
     description: [
-      `This project was created to address the inefficiencies in tracking water production activities. Previously, manual record-keeping processes often resulted in data inaccuracies, operational delays, and difficulty in generating reliable reports for decision-making.`,
-      `Using Laravel as the backend framework, the platform provides a centralized system for logging water-pumping activities. Operators can track production data, generate detailed reports, and analyze trends over time. The platform's clean and intuitive design ensures accessibility for users with varying levels of technical expertise.`,
-      `By replacing manual processes with an automated solution, this system improves transparency and ensures accurate data management. It empowers stakeholders to make better decisions based on real-time insights and historical data, ultimately enhancing the efficiency of water production operations.`,
+      "This website addresses inefficiencies in logging water production activities. Manual methods led to data inaccuracies, delays, and unreliable reporting.",
+      "Using Laravel, the system centralizes data logging, enabling operators to track production metrics and generate detailed reports. Its user-friendly design ensures accessibility for all users.",
+      "By automating record-keeping, this system promotes accurate data management and supports better decision-making in water production operations.",
     ],
     image: slide5,
+    stack: ["Laravel", "PHP", "HTML5", "CSS3", "JavaScript"],
+    stackIcons: [<FaLaravel />, <FaPhp />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
+  },
+  {
+    title: "Grounder — Car Dealers",
+    description: [
+      "Grounder is a dedicated platform for car dealerships, addressing the challenges of managing inventory, customer inquiries, and sales tracking.",
+      "Grounder offers intuitive inventory management, responsive design, and real-time analytics. Dealers can showcase cars effectively while providing an optimized browsing experience for potential buyers.",
+      "The platform bridges the gap between customer needs and dealership operations, ensuring a seamless car-buying journey.",
+    ],
+    image: slide6,
+    stack: ["Figma"],
+    stackIcons: [<SiFigma />],
+    link: "https://github.com",
+  },
+  {
+    title: "Volvo Indonesia — Landing Page",
+    description: [
+      "This project is a remade landing page for Volvo Indonesia, designed to enhance their digital presence and align with modern web standards.",
+      "The new design emphasizes responsive layouts, fast loading times, and an intuitive user interface. It integrates striking visuals and streamlined navigation to improve user engagement.",
+      "This remade landing page exemplifies how modern web design can amplify brand identity while delivering a superior online experience.",
+    ],
+    image: slide7,
+    stack: ["React", "HTML5", "CSS3", "JavaScript"],
+    stackIcons: [<FaReact />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+    link: "https://github.com",
   },
 ];
 
@@ -58,32 +109,291 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projectList[id];
+  const pageRef = useRef(null);
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    if (!pageRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Page entrance
+      gsap.fromTo(
+        pageRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power2.out" }
+      );
+
+      // Image reveal
+      if (imageRef.current) {
+        gsap.fromTo(
+          imageRef.current,
+          { clipPath: "inset(0 0 100% 0)", scale: 1.05 },
+          {
+            clipPath: "inset(0 0 0% 0)",
+            scale: 1,
+            duration: 1,
+            ease: "power3.inOut",
+            delay: 0.2,
+          }
+        );
+      }
+
+      // Content elements
+      const contentEls = contentRef.current?.querySelectorAll(".detail-reveal");
+      if (contentEls) {
+        gsap.fromTo(
+          contentEls,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.1,
+            delay: 0.4,
+          }
+        );
+      }
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, [id]);
 
   if (!project) {
-    return <p>Project not found!</p>;
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "var(--color-bg)",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <h1
+            className="heading-lg"
+            style={{ marginBottom: "16px" }}
+          >
+            Project not found
+          </h1>
+          <button
+            onClick={() => navigate(-1)}
+            className="btn-glass"
+            data-cursor-hover
+          >
+            ← Go Back
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center py-12">
-      <div className="max-w-4xl w-full p-4">
+    <div
+      ref={pageRef}
+      style={{
+        minHeight: "100vh",
+        background: "var(--color-bg)",
+        opacity: 0,
+      }}
+    >
+      {/* Hero Image */}
+      <div
+        style={{
+          width: "100%",
+          height: "clamp(300px, 50vh, 600px)",
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        <img
+          ref={imageRef}
+          src={project.image}
+          alt={project.title}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+        {/* Gradient overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to top, var(--color-bg) 0%, transparent 50%)",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div
+        ref={contentRef}
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          padding: "0 clamp(20px, 5vw, 80px) 100px",
+          marginTop: "-60px",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {/* Back button */}
         <button
           onClick={() => navigate(-1)}
-          className="text-blue-500 mb-6 hover:underline"
+          className="detail-reveal"
+          data-cursor-hover
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            fontSize: "0.85rem",
+            color: "var(--color-text-muted)",
+            marginBottom: "32px",
+            transition: "color 0.3s",
+            opacity: 0,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "var(--color-accent)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "var(--color-text-muted)";
+          }}
         >
-          &larr; Back to Projects
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Back to Projects
         </button>
-        <h1 className="text-4xl text-black font-bold mb-4">{project.title}</h1>
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          className="w-full h-64 object-contain"
-        />
-        
-        <div className="text-gray-500 text-justify text-lg mt-6 space-y-4">
+
+        {/* Title */}
+        <h1
+          className="detail-reveal"
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontWeight: 800,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "var(--color-text-primary)",
+            marginBottom: "40px",
+            opacity: 0,
+          }}
+        >
+          {project.title}
+        </h1>
+
+        {/* Description paragraphs */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "24px",
+            marginBottom: "48px",
+          }}
+        >
           {project.description.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+            <p
+              key={index}
+              className="detail-reveal"
+              style={{
+                fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)",
+                lineHeight: 1.8,
+                color: "var(--color-text-secondary)",
+                opacity: 0,
+              }}
+            >
+              {paragraph}
+            </p>
           ))}
         </div>
+
+        {/* Tech stack */}
+        <div
+          className="detail-reveal"
+          style={{
+            marginBottom: "32px",
+            opacity: 0,
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "var(--color-text-muted)",
+              marginBottom: "16px",
+              display: "block",
+            }}
+          >
+            Technologies
+          </span>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+            {project.stack.map((tech, i) => (
+              <span
+                key={i}
+                className="glass-card"
+                style={{
+                  padding: "8px 16px",
+                  fontSize: "0.8rem",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  color: "var(--color-text-secondary)",
+                  borderRadius: "8px",
+                }}
+              >
+                <span style={{ color: "var(--color-accent)", fontSize: "1rem" }}>
+                  {project.stackIcons[i]}
+                </span>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Link */}
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary detail-reveal"
+            data-cursor-hover
+            style={{ opacity: 0 }}
+          >
+            <span>View Repository</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ position: "relative", zIndex: 1 }}
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+        )}
       </div>
     </div>
   );

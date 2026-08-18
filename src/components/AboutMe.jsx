@@ -1,76 +1,252 @@
-// src/components/About.jsx
-import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Separator from "../assets/images/separator.png";
-import "@fortawesome/fontawesome-free/css/all.min.css"; // Ensure this path is correct
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  const { ref, inView } = useInView({ threshold: 0.1 });
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const outlineRef = useRef(null);
+  const para1Ref = useRef(null);
+  const para2Ref = useRef(null);
+  const statsRef = useRef(null);
 
-  // Animation variants
-  const aboutVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 50 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Large outline text parallax
+      gsap.fromTo(
+        outlineRef.current,
+        { x: "-10%" },
+        {
+          x: "10%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.6,
+          },
+        }
+      );
+
+      // Section label + title
+      gsap.fromTo(
+        titleRef.current?.querySelectorAll(".about-reveal"),
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Paragraphs
+      [para1Ref, para2Ref].forEach((ref, i) => {
+        gsap.fromTo(
+          ref.current,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ref.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
+      // Stat cards stagger
+      const statCards = statsRef.current?.querySelectorAll(".stat-card");
+      if (statCards) {
+        gsap.fromTo(
+          statCards,
+          { y: 40, opacity: 0, scale: 0.95 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: statsRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const stats = [
+    { number: "7+", label: "Projects Completed" },
+    { number: "2+", label: "Years Learning" },
+    { number: "3", label: "Internships" },
+  ];
 
   return (
-    <motion.div
-      ref={ref}
-      className="mx-auto sm:px-[210px] py-8 sm:py-16 bg-white w-full"
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
+    <section
+      ref={sectionRef}
+      className="section"
+      id="about"
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: "var(--color-bg)",
+      }}
     >
-      <div className="flex flex-col sm:flex-row items-start justify-between my-4 sm:my-8">
-        <div className="flex items-center py-8">
-          <h2 className="text-4xl font-bold text-gray-800 pe-8 pl-4 sm:pe-8">
-            About Me
-          </h2>
-          <svg
-            className="w-6 h-6 mt-2 text-black"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+      {/* Large outline text in background */}
+      <div
+        ref={outlineRef}
+        className="text-outline"
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "-5%",
+          transform: "translateY(-50%)",
+          fontSize: "clamp(6rem, 18vw, 16rem)",
+          whiteSpace: "nowrap",
+          pointerEvents: "none",
+          opacity: 0.04,
+          userSelect: "none",
+        }}
+      >
+        ABOUT ME
+      </div>
+
+      <div className="section-container">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "60px",
+          }}
+        >
+          {/* Top: title area */}
+          <div
+            ref={titleRef}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "12px",
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </div>
-        <div className="flex-col items-start w-full sm:w-2/3 ms-4 sm:ms-8">
-          <motion.h3
-            className="text-2xl text-justify text-gray-600 me-8"
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={aboutVariants}
-            transition={{ duration: 1, delay: 0.2 }}
+            <span className="section-label about-reveal">About</span>
+            <h2
+              className="heading-lg about-reveal"
+              style={{ maxWidth: "600px" }}
+            >
+              Bridging design{" "}
+              <span className="text-gradient">&amp; code</span>
+            </h2>
+          </div>
+
+          {/* Content grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 450px), 1fr))",
+              gap: "40px",
+              alignItems: "start",
+            }}
           >
-            Hi, I’m Danny, a dedicated web programmer and UI/UX designer from
-            Batang, Central Java. My journey in the tech world began in high
-            school, where I developed a passion for creating functional and
-            aesthetically pleasing digital experiences. With a strong foundation
-            in programming and design, I strive to bridge the gap between user
-            needs and technical implementation.
-          </motion.h3>
-          <motion.h3
-            className="text-2xl text-justify text-gray-600 mt-16 me-8 sm:mt-16 sm:me-8"
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={aboutVariants}
-            transition={{ duration: 1, delay: 0.4 }} // Increased delay for stagger effect
-          >
-            I’m currently seeking new opportunities to enhance my skills and
-            contribute to innovative projects. My goal is to deliver seamless
-            user experiences while leveraging the latest web technologies. Let’s
-            connect and see how I can add value to your team or project!
-          </motion.h3>
+            {/* Left: Bio text */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              <p
+                ref={para1Ref}
+                style={{
+                  fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+                  lineHeight: 1.8,
+                  color: "var(--color-text-secondary)",
+                  opacity: 0,
+                }}
+              >
+                Hi, I'm Danny, a dedicated web programmer and UI/UX designer from
+                Batang, Central Java. My journey in the tech world began in high
+                school, where I developed a passion for creating functional and
+                aesthetically pleasing digital experiences. With a strong foundation
+                in programming and design, I strive to bridge the gap between user
+                needs and technical implementation.
+              </p>
+              <p
+                ref={para2Ref}
+                style={{
+                  fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+                  lineHeight: 1.8,
+                  color: "var(--color-text-secondary)",
+                  opacity: 0,
+                }}
+              >
+                I'm currently seeking new opportunities to enhance my skills and
+                contribute to innovative projects. My goal is to deliver seamless
+                user experiences while leveraging the latest web technologies. Let's
+                connect and see how I can add value to your team or project!
+              </p>
+            </div>
+
+            {/* Right: Stats */}
+            <div
+              ref={statsRef}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+              }}
+            >
+              {stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className="stat-card glass-card"
+                  style={{
+                    padding: "28px 32px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                    opacity: 0,
+                  }}
+                >
+                  <span
+                    className="text-gradient"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontSize: "clamp(2rem, 4vw, 2.8rem)",
+                      fontWeight: 800,
+                      lineHeight: 1,
+                    }}
+                  >
+                    {stat.number}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "var(--color-text-secondary)",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 
